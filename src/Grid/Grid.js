@@ -3,15 +3,7 @@ import anime from 'animejs/lib/anime.es.js';
 import styles from './Grid.module.css';
 
 const Grid = () => {
-  const gridSize = 50;
-  const [grid, setGrid] = useState(Array.from({ length: gridSize * gridSize }, (_, index) => ({
-    char: ' ',
-    visible: false,
-    id: index,
-  })));
-
-  useEffect(() => {
-    const asciiArt = [
+  const [asciiArt, setAsciiArt] = useState([
       "....................................................................................................",
       "....................................................................................................",
       "....................................................................................................",
@@ -66,62 +58,70 @@ const Grid = () => {
       "$$$XX$$$XXxxxxXXXXXxXXxXXx++xxX$&&&$X&$XxXxXXXxx+++++++++;;;;;;;;;..................................",
       "XXXXXXXX$XXXxxxXXXXxxXXXXXxxx+xxxX$&&&&&$$Xxx+xXXxx++;;;;+;;;;++;:..................................",
       "XXXxxxXXX$$XXxxxXXXXXXxXXxXxxxxxxxxXxX$$XXxxx+xxxx++;++++++++++;;...................................",
-      ];
+  ]);
 
-    let artIndex = 0;
-    setGrid(grid.map(cell => {
-      const row = Math.floor(artIndex / gridSize);
-      const col = artIndex % gridSize;
-      let char = ' ';
-      if (row < asciiArt.length && col < asciiArt[row].length) {
-        char = asciiArt[row][col];
-      }
-      artIndex++;
-      return { ...cell, char: char, visible: cell.visible };
-    }));
-  }, []);
+  // No need for gridSize since the grid dimensions are determined by asciiArt
+  const [grid, setGrid] = useState([]);
 
-  const revealArea = (index) => {
-    const rowClicked = Math.floor(index / gridSize);
-    const colClicked = index % gridSize;
-    const revealRadius = 3; // Adjust this value to change the reveal radius
+  useEffect(() => {
+    // Dynamically adjust grid based on asciiArt content
+    const newGrid = asciiArt.flatMap((row, rowIndex) =>
+      row.split('').map((char, colIndex) => ({
+        char,
+        visible: false,
+        id: `${rowIndex}-${colIndex}`, // Unique ID for each cell based on its row and column
+      }))
+    );
+    setGrid(newGrid);
+  }, [asciiArt]);
 
-    setGrid(grid.map((cell, idx) => {
-      const rowCurrent = Math.floor(idx / gridSize);
-      const colCurrent = idx % gridSize;
-      if (
-        rowCurrent >= rowClicked - revealRadius && rowCurrent <= rowClicked + revealRadius &&
-        colCurrent >= colClicked - revealRadius && colCurrent <= colClicked + revealRadius
-      ) {
+  // Determine grid dimensions from asciiArt
+  const numCols = asciiArt[0]?.length || 0;
+  const numRows = asciiArt.length;
+
+  const revealArea = (id) => {
+    // Assume id is in the format "rowIndex-colIndex"
+    const [rowClicked, colClicked] = id.split('-').map(Number);
+    const revealRadius = 3;
+
+    const newGrid = grid.map(cell => {
+      const [rowCurrent, colCurrent] = cell.id.split('-').map(Number);
+      const distance = Math.max(Math.abs(rowCurrent - rowClicked), Math.abs(colCurrent - colClicked));
+      if (distance <= revealRadius) {
         return { ...cell, visible: true };
       }
       return cell;
-    }));
+    });
+
+    setGrid(newGrid);
   };
 
   const revealAllCharacters = () => {
-    setGrid(grid.map(cell => ({
-      ...cell,
-      visible: true,
-    })));
+    setGrid(grid.map(cell => ({ ...cell, visible: true })));
   };
 
   const clearAllCharacters = () => {
-    setGrid(grid.map(cell => ({
-      ...cell,
-      visible: false,
-    })));
+    setGrid(grid.map(cell => ({ ...cell, visible: false })));
   };
 
   const handleCellClick = (index) => {
     revealArea(index);
+    // Optional: Animate cell on click using anime.js
   };
 
   return (
     <div className="gridContainer">
-      <div className={styles.grid}>
-        {grid.map((cell, index) => (
-          <div key={cell.id} id={`cell-${cell.id}`} className={styles.gridCell} onClick={() => handleCellClick(index)}>
+      <div 
+        className={styles.grid} 
+        style={{ gridTemplateColumns: `repeat(${numCols}, 10px)` }} // Set the number of columns dynamically
+      >
+        {grid.map((cell) => (
+          <div 
+            key={cell.id} 
+            id={`cell-${cell.id}`} 
+            className={styles.gridCell} 
+            onClick={() => handleCellClick(cell.id)}
+          >
             {cell.visible ? cell.char : ''}
           </div>
         ))}

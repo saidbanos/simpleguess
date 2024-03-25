@@ -1,6 +1,5 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(50, 10px); /* 100 columns */
     grid-gap: 1px; /* Small gap between cells */
     justify-content: center;
     max-width: 100vw;
