@@ -6,11 +6,11 @@
     max-width: 100vw;
     overflow: auto;
     margin: auto;
-    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow: auto; /* Hide vertical scrollbar */
+    padding: 1px; 
   }
   
-  .grid-cell {
-    background-color: #ffffff;
+  .gridCell {
     width: 10px; /* Small cell size */
     height: 10px; /* Small cell size, keeping it square */
     cursor: pointer;
@@ -21,9 +21,10 @@
     user-select: none; /* Prevents text selection */
     color: black; /* Text color */
     font-weight: bold; /* Make text bold */
+    border: 1px solid #ccc; /* Grey border for each cell */
   }
   
-  .grid-cell:hover {
+  .gridCell:hover {
     background-color: #ccc; /* Hover effect */
   }
   

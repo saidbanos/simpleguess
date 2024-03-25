@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import './Grid.css';
+import styles from './Grid.module.css';
+
 
 const Grid = () => {
   const gridSize = 50; 
@@ -101,13 +102,14 @@ const Grid = () => {
   };
 
   return (
-    <div className="grid">
-      {grid.map(cell => (
-        <div key={cell.id} id={`cell-${cell.id}`} className="grid-cell" onClick={() => handleCellClick(cell.id)}>
-          {cell.visible ? cell.char : ''}
-        </div>
-      ))}
+<div className={styles.grid}>
+  {grid.map(cell => (
+    <div key={cell.id} id={`cell-${cell.id}`} className={styles.gridCell} onClick={() => handleCellClick(cell.id)}>
+      {cell.visible ? cell.char : ''}
     </div>
+  ))}
+</div>
+
   );
 };
 
