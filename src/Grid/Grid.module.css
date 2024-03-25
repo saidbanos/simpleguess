@@ -8,8 +8,13 @@
     margin: auto;
     overflow: auto; /* Hide vertical scrollbar */
     padding: 1px; 
+    overflow: hidden;
   }
   
+  .gridContainer {
+    overflow: hidden; /* Hide scrollbars for the container */
+  }
+
   .gridCell {
     width: 10px; /* Small cell size */
     height: 10px; /* Small cell size, keeping it square */
