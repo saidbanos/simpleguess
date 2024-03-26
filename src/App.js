@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Grid from './Grid/Grid';
-import BodySection from './BodySection';
-import HeroSection from './HeroSection';
+import Grid from './Components/Grid/Grid';
+import BodySection from './Components/Body/BodySection';
+import HeroSection from './Components/Header/HeroSection';
+import ThemesGrid from './ThemesGrid';
 
 function App() {
   return (
@@ -10,7 +11,6 @@ function App() {
          
          <HeroSection />
       <BodySection />
-    
     
      
       

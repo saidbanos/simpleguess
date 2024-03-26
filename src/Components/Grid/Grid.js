@@ -129,13 +129,13 @@ const Grid = () => {
       <div className="buttonContainer mt-4 flex justify-center space-x-2">
         <button 
           onClick={revealAllCharacters} 
-          className="py-2 px-6 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 whitespace-nowrap"
+          className="py-2 px-6 bg-purple-700 text-white font-semibold rounded-lg shadow-md hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-75 whitespace-nowrap"
         >
           Reveal All
         </button>
         <button 
           onClick={clearAllCharacters} 
-          className="py-2 px-6 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 whitespace-nowrap"
+          className="py-2 px-6 bg-purple-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-75 whitespace-nowrap"
         >
           Clear All
         </button>
