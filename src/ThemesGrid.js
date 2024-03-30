@@ -6,7 +6,7 @@ import musicImage from './assets/themes/music.png';
 import foodImage from './assets/themes/food.png';
 import natureImage from './assets/themes/nature.png';
 
-export default function Example() {
+export default function ThemesGrid({ onStart }) {
   const [selection, setSelection] = useState('');
 
   const themes = [
@@ -58,6 +58,19 @@ export default function Example() {
           </div>
         </div>
       </div>
+
+
+      <div className="text-center py-4">
+      <button
+              className={`mt-4 px-4 py-2 border rounded-md ${selection ? 'border-transparent bg-blue-600 text-white hover:bg-blue-700' : 'border-gray-200 bg-gray-200 text-gray-500 cursor-not-allowed'}`}
+              disabled={!selection}
+              onClick={() => onStart(selection)}
+            >
+              Start
+            </button>
+      </div>
+
+
     </div>
   );
 }
