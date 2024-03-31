@@ -50,7 +50,7 @@ export default function BodySection() {
 
 			//setasciiArtFromApi(data.characters);
 
-			//console.log(data);
+			console.log(data);
 		} catch (error) {
 			//console.error('There was an issue fetching the ASCII art:', error);
 			// Keep the error handling as is, setting to an empty array if there's an issue
