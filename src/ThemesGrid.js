@@ -10,12 +10,12 @@ export default function ThemesGrid({ onStart }) {
 	const [selection, setSelection] = useState("");
 
 	const themes = [
-		{ name: "animal", src: animalsImage },
-		{ name: "sport item", src: sportsImage },
-		{ name: "transportation vehicle", src: transportationImage },
-		{ name: "music instrument", src: musicImage },
-		{ name: "food item", src: foodImage },
-		{ name: "nature item", src: natureImage },
+		{ name: "animals", src: animalsImage },
+		{ name: "sport items", src: sportsImage },
+		{ name: "transportation vehicles", src: transportationImage },
+		{ name: "music instruments", src: musicImage },
+		{ name: "food items", src: foodImage },
+		{ name: "nature items", src: natureImage },
 	];
 
 	const handleImageClick = (themeName) => {
