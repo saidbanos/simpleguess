@@ -1,34 +1,27 @@
 .grid {
-    display: grid;
-    grid-gap: 1px; /* Small gap between cells */
-    justify-content: center;
-    max-width: 100vw;
-    overflow: auto;
-    margin: auto;
-    overflow: auto; /* Hide vertical scrollbar */
-    padding: 1px; 
-    overflow: hidden;
-  }
-  
-  .gridContainer {
-    overflow: hidden; /* Hide scrollbars for the container */
-  }
+	display: grid;
+	grid-gap: 1px; /* Small gap between cells */
+	justify-content: start;
+	max-width: 100vw;
+	overflow: auto;
+	margin: auto;
+	padding: 1px;
+}
 
-  .gridCell {
-    width: 10px; /* Small cell size */
-    height: 10px; /* Small cell size, keeping it square */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px; /* Adjust based on your preference */
-    user-select: none; /* Prevents text selection */
-    color: black; /* Text color */
-    font-weight: bold; /* Make text bold */
-    border: 1px solid #ccc; /* Grey border for each cell */
-  }
-  
-  .gridCell:hover {
-    background-color: #ccc; /* Hover effect */
-  }
-  
+.gridCell {
+	width: 10px; /* Small cell size */
+	height: 18px; /* Small cell size, keeping it square */
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px; /* Adjust based on your preference */
+	user-select: none; /* Prevents text selection */
+	color: black; /* Text color */
+	font-weight: bold; /* Make text bold */
+	border: 1px solid #ccc; /* Grey border for each cell */
+}
+
+.gridCell:hover {
+	background-color: #ccc; /* Hover effect */
+}
