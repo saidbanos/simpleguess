@@ -2,15 +2,17 @@
 	display: grid;
 	grid-gap: 1px; /* Small gap between cells */
 	justify-content: start;
-	max-width: 100vw;
-	overflow: auto;
+	max-width: 100%;
+	overflow: visible;
 	margin: auto;
 	padding: 1px;
+	transform: scale(0.73); /* Example: adjust scaling as needed */
+	transform-origin: top left;
 }
 
 .gridCell {
-	width: 10px; /* Small cell size */
-	height: 18px; /* Small cell size, keeping it square */
+	width: 8x; /* Small cell size */
+	height: 21px; /* Small cell size, keeping it square */
 	cursor: pointer;
 	display: flex;
 	align-items: center;
