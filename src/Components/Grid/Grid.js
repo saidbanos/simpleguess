@@ -3,12 +3,6 @@ import styles from "./Grid.module.css";
 
 const Grid = ({ asciiArtFromApi }) => {
 	const [grid, setGrid] = useState([]);
-
-	// Initialize with a blank ASCII art or use the one provided via props
-
-	//console.log(asciiArtFromApi);
-	//console.log(asciiArtFromApi.length > 0);
-
 	useEffect(() => {
 		const initialArt =
 			asciiArtFromApi.length > 0
@@ -113,7 +107,6 @@ const Grid = ({ asciiArtFromApi }) => {
 		setGrid(newGrid);
 	}, [asciiArtFromApi]);
 
-	// Determine grid dimensions dynamically
 	const numCols = 80;
 
 	const revealArea = (id) => {

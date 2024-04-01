@@ -37,7 +37,6 @@ export default function ThemesGrid({ onStart }) {
 				</div>
 			</div>
 
-			{/* Reduced padding for closer alignment */}
 			<div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 				<div className="lg:flex lg:items-start lg:justify-between">
 					<div className="grid grid-cols-3 gap-2 sm:gap-4 lg:flex-1">
