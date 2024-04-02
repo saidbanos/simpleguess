@@ -7,7 +7,7 @@
 	margin: auto;
 	padding: 1px;
 	transform: scale(0.73); /* Example: adjust scaling as needed */
-	transform-origin: top left;
+	transform-origin: center;
 }
 
 .gridCell {
