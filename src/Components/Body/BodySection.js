@@ -4,7 +4,7 @@ import ThemesGrid from "../../ThemesGrid";
 
 export default function BodySection() {
 	const [selectedTheme, setSelectedTheme] = useState("");
-	const [asciiArtFromApi, setasciiArtFromApi] = useState([]);
+	const [asciiArtFromApi, setAsciiArtFromApi] = useState({});
 	const handleStartGame = async (theme) => {
 		setSelectedTheme(theme);
 
@@ -18,9 +18,10 @@ export default function BodySection() {
 			});
 			if (!response.ok) throw new Error("Network response was not ok");
 			const data = await response.json();
-			console.log(data);
+			setAsciiArtFromApi(data);
+			//console.log(data);
 		} catch (error) {
-			setasciiArtFromApi([]);
+			setAsciiArtFromApi({});
 		}
 	};
 
